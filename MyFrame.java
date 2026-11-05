@@ -3,14 +3,15 @@ import java.awt.Graphics;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.*;
 
 // This code borrowed from:
 // https://www.geeksforgeeks.org/java/what-is-java-awt-graphics/
 public class MyFrame extends Frame {
     public MyFrame()
     {
-        setVisible(true);
-        setSize(300, 200);
+        
+        setSize(480, 640);
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e)
@@ -25,4 +26,10 @@ public class MyFrame extends Frame {
     {
         g.drawRect(100, 100, 100, 50);
     }
+
+    public void createWindow() {
+        setVisible(true);
+    }
+
+    
 }
