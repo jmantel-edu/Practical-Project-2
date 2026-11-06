@@ -1,3 +1,6 @@
+
+import java.awt.Graphics;
+
 public class PlayScene implements Scene {
 
     @Override
@@ -7,7 +10,7 @@ public class PlayScene implements Scene {
     }
 
     @Override
-    public void loop() {
+    public void loop(Graphics g) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'loop'");
     }

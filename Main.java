@@ -1,5 +1,7 @@
 
 
+
+
 /*
 I have only used resources indicated that are allowable.
 The work submitted is my, and only my work.
@@ -10,10 +12,9 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         PlayWindow f = new PlayWindow();
         f.createWindow();
-        f.addKeyListener(f);
-
+        f.addKeyListener(f);        
         
-        while (f.isRunning && f.isVisible()) {
+        while (PlayWindow.isRunning && f.isVisible()) {
             long nextTick = System.currentTimeMillis() + 17;
             f.myRepaint(0, 0, 0, f.getWidth(), f.getHeight());
             long timeToNextTick = nextTick - System.currentTimeMillis();
@@ -21,3 +22,4 @@ public class Main {
         }
     }
 }
+

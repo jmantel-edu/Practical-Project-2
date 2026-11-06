@@ -9,8 +9,14 @@ import java.awt.event.WindowEvent;
 // https://www.geeksforgeeks.org/java/what-is-java-awt-graphics/
 public class PlayWindow extends Frame implements KeyListener {
     
-    public boolean isRunning = true;
-    public Scene scene = new TitleScene();
+    public static boolean isRunning = true;
+    public static Scene scene = new TitleScene();
+
+    public static void setScene (Scene s) {
+        scene.terminate();
+        scene = s;
+        scene.initialize();
+    }
 
     public PlayWindow()
     {
@@ -20,6 +26,8 @@ public class PlayWindow extends Frame implements KeyListener {
             @Override
             public void windowClosing(WindowEvent e)
             {
+
+                isRunning = false;
                 System.exit(0);
             }
         });
@@ -27,8 +35,7 @@ public class PlayWindow extends Frame implements KeyListener {
     
     @Override
     public void paint(Graphics g) {
-        g.drawRect(100, 100, 100, 50);
-        g.drawString(Long.toString(System.currentTimeMillis()), 50, 50);
+        scene.loop(g);
     }
 
     public void myRepaint(long tm, int x, int y, int width, int height) {
@@ -59,8 +66,3 @@ public class PlayWindow extends Frame implements KeyListener {
     
 }
 
-class Rectangle {
-    public Rectangle(int x, int y, int w, int h) {
-
-    }
-}
