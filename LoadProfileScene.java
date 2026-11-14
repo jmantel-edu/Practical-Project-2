@@ -7,7 +7,7 @@ public class LoadProfileScene implements Scene {
 
     @Override
     public double getScore() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("Not supported in this scene.");
     }
     
 }
