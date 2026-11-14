@@ -1,0 +1,68 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+/**
+ * The profile class holds various information about the profile.
+ * 
+ */
+public class Profile {
+    private String name;
+    private int unlockLevel;
+    private long nextDaily = System.currentTimeMillis() + 86400;
+
+    public String getName() {
+        return name;
+    }
+
+    public int getUnlockLevel() {
+        return unlockLevel;
+    }
+
+    public long getNextDaily() {
+        return nextDaily;
+    }
+
+    public void setName(String n) {
+        this.name = n;
+    }
+
+    public void raiseUnlockLevel(){
+        this.unlockLevel++;
+    }
+
+    public void setUnlockLevel(int add) {
+        this.unlockLevel += add;
+    }
+
+    public boolean isNextDay() {
+        return System.currentTimeMillis() > nextDaily;
+    }
+
+    public void updateNextDay() {
+        nextDaily = System.currentTimeMillis() + 86400;
+    }
+
+    public Profile(File f) throws FileNotFoundException {
+        Scanner sc = new Scanner(f);
+        this.name = sc.next();
+        this.unlockLevel = sc.nextInt();
+        this.nextDaily = sc.nextLong();
+        sc.close();
+    }
+
+    public Profile(String n) {
+        this.name = n;
+        this.unlockLevel = 0;
+        this.nextDaily = System.currentTimeMillis() + 86400;
+    }
+
+    @Override
+    public String toString() {
+        return(name + "\n" + unlockLevel + "\n" + nextDaily);
+    }
+
+    public static void updateProfileFile(File f, Profile p) {
+
+    }
+}
