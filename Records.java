@@ -110,4 +110,126 @@ public class Records {
         sc.close();
     }
 
+    
+    /*
+    =====
+    Getters & Setters
+    =====
+
+    For arrays, Methods ending in "At" get/set one value; methods that don't end in "At" get/set the whole array
+    */
+
+    public static double[][] getArithmeticDrillRecord() {
+        return arithmeticDrillRecord;
+    }
+
+    public static double getArithmeticDrillRecordAt(int difficulty, int questionCount) {
+        return arithmeticDrillRecord[difficulty][questionCount];
+    }
+
+    public static void setArithmeticDrillRecord(double[][] arithmeticDrillRecord) {
+        Records.arithmeticDrillRecord = arithmeticDrillRecord;
+    }
+
+    public static void setArithmeticDrillRecordAt(int difficulty, int questionCount, double newValue) {
+        Records.arithmeticDrillRecord[difficulty][questionCount] = newValue;
+    }
+
+
+
+
+    public static double[] getRecallGridRecord() {
+        return recallGridRecord;
+    }
+
+    public static double getRecallGridRecordAt(int difficulty) {
+        return recallGridRecord[difficulty];
+    }
+
+    public static void setRecallGridRecord(double[] recallGridRecord) {
+        Records.recallGridRecord = recallGridRecord;
+    }
+
+    public static void setRecallGridRecordAt(int difficulty, double newValue) {
+        Records.recallGridRecord[difficulty] = newValue;
+    }
+
+
+    
+    
+    public static double getRockPaperScissorsRecord() {
+        return rockPaperScissorsRecord;
+    }
+
+    public static void setRockPaperScissorsRecord(double rockPaperScissorsRecord) {
+        Records.rockPaperScissorsRecord = rockPaperScissorsRecord;
+    }
+
+
+
+
+    public static double[][] getSignFinderRecord() {
+        return signFinderRecord;
+    }
+
+    public static double getSignFinderRecordAt(int difficulty, int questionCount) {
+        return signFinderRecord[difficulty][questionCount];
+    }
+
+    public static void setSignFinderRecord(double[][] signFinderRecord) {
+        Records.signFinderRecord = signFinderRecord;
+    }
+
+    public static void setSignFinderRecordAt(int difficulty, int questionCount, double newValue) {
+        Records.signFinderRecord[difficulty][questionCount] = newValue;
+    }
+
+
+
+
+    public static double[] getRepeatSubtractionRecord() {
+        return repeatSubtractionRecord;
+    }
+
+    public static double getRepeatSubtractionRecordAt(int difficulty) {
+        return repeatSubtractionRecord[difficulty];
+    }
+
+    public static void setRepeatSubtractionRecord(double[] repeatSubtractionRecord) {
+        Records.repeatSubtractionRecord = repeatSubtractionRecord;
+    }
+
+    public static void setRepeatSubtractionRecordAt(int difficulty, double newValue) {
+        Records.repeatSubtractionRecord[difficulty] = newValue;
+    }
+
+
+
+
+    public static double[] getBoxOrderRecord() {
+        return boxOrderRecord;
+    }
+
+    public static void setBoxOrderRecord(double[] boxOrderRecord) {
+        Records.boxOrderRecord = boxOrderRecord;
+    }
+    
+    public static double getBoxOrderRecordAt(int difficulty) {
+        return boxOrderRecord[difficulty];
+    }
+
+    public static void setBoxOrderRecordAt(int difficulty, double newValue) {
+        Records.boxOrderRecord[difficulty] = newValue;
+    }
+
+
+
+
+    public static double getEnduranceArithmeticRecord() {
+        return enduranceArithmeticRecord;
+    }
+
+    public static void setEnduranceArithmeticRecord(double enduranceArithmeticRecord) {
+        Records.enduranceArithmeticRecord = enduranceArithmeticRecord;
+    }
 }
