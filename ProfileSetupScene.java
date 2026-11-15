@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.FileAlreadyExistsException;
 import java.util.Scanner;
@@ -12,16 +13,20 @@ public class ProfileSetupScene implements Scene {
         Scanner sc = new Scanner(System.in);
         System.out.println("First, can we get your name?\n* Your name must not contain spaces, and its length must not be more than 20 characters.");
 
-        while (!name.toLowerCase().equals("records") || !name.contains(" ") || name.length() > 20) { // While the name is not valid
+        while (name.contains(" ") || name.length() > 20) { // While the name is not valid
             name = sc.nextLine();
-
-            if (name.toLowerCase().equals("records")) {
-                System.out.println("Your name cannot be \"records\" because that is reserved for the Records file.");
-            } else if (name.contains(" ")) {
+            
+            if (name.contains(" ")) {
                 System.out.println("Your name cannot contain any spaces.");
-            } else if (name.length() > 20) {
+                continue;
+            } 
+            
+            if (name.length() > 20) {
                 System.out.println("Your name is too long! Keep it under 20 characters.");
+                continue;
             }
+
+            break;
 
         }
 
@@ -37,7 +42,24 @@ public class ProfileSetupScene implements Scene {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
+
+        try {
+                Thread.sleep(500); // Time to wait for the file to be created
+                Game.setProfile(new Profile(name));
+                Profile.updateProfileFile(new File (".\\profiles\\" + name + ".txt"), Game.p);
+                
+            } catch (FileNotFoundException e) {
+                System.out.println("For some reason, the profile file that should have been just created could not be found.");
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                System.out.println("The thread was interrupted while creating the profile file.");
+                e.printStackTrace();
+            } catch (IOException e) {
+                System.out.println("Something went wrong while trying to initialize the file.");
+                e.printStackTrace();
+            }
         
+
     }
 
     @Override

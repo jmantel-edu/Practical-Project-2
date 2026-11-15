@@ -16,8 +16,10 @@ public class Game {
     public static Profile p = null;
     public static final File PROFILES_DIRECTORY = new File(".\\profiles");
     public static final File[] ALL_PROFILES = PROFILES_DIRECTORY.listFiles();
+    public static boolean isRunning = true;
 
     public static void main(String[] args) { 
+
         Scanner sc = new Scanner(System.in);
         String command = "";
         boolean isValid = false;
@@ -48,13 +50,20 @@ public class Game {
             s = new ProfileSetupScene();
             while (!profileLoaded) {
                 s.loop();
-
+                if (p != null) {
+                    System.out.println("The selected profile was loaded.");
+                    System.out.println(p.toString());
+                    profileLoaded = true;
+                }
             }
-
             s = new BrainTestScene();
             s.loop();
         }
 
+        while (isRunning) {
+            s = new SelectScene();
+            s.loop();
+        }
 
 
         sc.close();
@@ -104,5 +113,9 @@ public class Game {
 
     public static Profile getProfile() {
         return p;
+    }
+
+    public static void stop() {
+        isRunning = false;
     }
 }

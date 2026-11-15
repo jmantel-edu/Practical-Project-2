@@ -3,6 +3,8 @@ public class ArithmeticQuestion {
     private int b;
     private char sign;
 
+    final public static char[] SIGNS = new char[]{'+', '-', '*', '/'}; 
+
     public ArithmeticQuestion(int a, int b, char sign) {
         this.a = a;
         this.b = b;

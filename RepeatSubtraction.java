@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -47,9 +48,9 @@ public class RepeatSubtraction extends PlayScene {
             try {
                 userAnswer = sc.nextInt();
                 if (userAnswer == getNextSolution(number, difficulty)) {
-                    System.out.println(" ✓\n");
+                    System.out.print(" ✓\n");
                 } else {
-                    System.out.println(" ✗ Time Penalty +5sec\n");
+                    System.out.print(" ✗ Time Penalty +5sec\n");
                     startingTime -= 5000;
                 }
             } catch (InputMismatchException e) {
@@ -58,6 +59,8 @@ public class RepeatSubtraction extends PlayScene {
             }
         }
 
+
+        // Post-loop
         finalTime = System.currentTimeMillis();
         score = (double)(finalTime - startingTime)/1000;
 
@@ -69,7 +72,10 @@ public class RepeatSubtraction extends PlayScene {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
-        
+
+        System.out.println("Press enter to proceed...");
+        sc.next();
+        sc.close();
 
     }
 
