@@ -1,5 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -43,6 +46,13 @@ public class Profile {
         nextDaily = System.currentTimeMillis() + 86400;
     }
 
+    public void smartUpdateDaily() {
+        if (System.currentTimeMillis() > nextDaily) {
+            unlockLevel++;
+            System.out.println("Welcome back! Your unlock level was raised from " + (unlockLevel - 1) + " to " + (unlockLevel + 1) + ". Visit once every 24 hours to unlock something new!");
+        }
+    }
+
     public Profile(File f) throws FileNotFoundException {
         Scanner sc = new Scanner(f);
         this.name = sc.next();
@@ -59,10 +69,18 @@ public class Profile {
 
     @Override
     public String toString() {
-        return(name + "\n" + unlockLevel + "\n" + nextDaily);
+        return("Name: " + name + "\nUnlock Level:" + unlockLevel + "\nNext Unlock Level Increase" + nextDaily);
     }
 
-    public static void updateProfileFile(File f, Profile p) {
+    public static void updateProfileFile(File f, Profile p) throws IOException {
+        PrintWriter fw = new PrintWriter(f);
+        fw.print(""); // Clear out the file to prepare to write new data to it.
+
+        fw.write(p.name + "\n");
+        fw.write(p.unlockLevel + "\n");
+        fw.write(Long.toString(p.nextDaily));
+
+        fw.close();
 
     }
 }

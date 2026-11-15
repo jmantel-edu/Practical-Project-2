@@ -66,5 +66,9 @@ public class ArithmeticQuestion {
         }
     }
 
+    @Override 
+    public String toString() {
+        return (Integer.toString(a) + " " + Character.toString(sign) + " " + Integer.toString(b));
+    }
     
 }

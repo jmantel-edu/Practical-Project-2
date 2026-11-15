@@ -13,8 +13,14 @@ public class Records {
     private static double[] boxOrderRecord = new double[4]; // Easy/Normal/Hard/Crazy
     private static double enduranceArithmeticRecord;
 
+
+    /**
+     * Saves records to the records.txt file.
+     * @throws FileNotFoundException
+     * @throws NullPointerException
+     */
     public static void saveRecords() throws FileNotFoundException, NullPointerException {
-        File f = new File(".\\records\\myprofile.txt");
+        File f = new File(".\\records\\records.txt");
 
         // This code borrowed from:
         // https://www.baeldung.com/java-delete-file-contents
@@ -65,7 +71,7 @@ public class Records {
     }
 
     public void getSavedRecords() throws FileNotFoundException, NoSuchElementException {
-        File f = new File(".\\records\\myprofile.txt");
+        File f = new File(".\\records\\records.txt");
         Scanner sc = new Scanner(f);
 
         while (sc.hasNextDouble()) {
@@ -116,7 +122,7 @@ public class Records {
     Getters & Setters
     =====
 
-    For arrays, Methods ending in "At" get/set one value; methods that don't end in "At" get/set the whole array
+    For arrays, methods ending in "At" get/set one value; methods that don't end in "At" get/set the whole array
     */
 
     public static double[][] getArithmeticDrillRecord() {
