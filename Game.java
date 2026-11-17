@@ -17,10 +17,11 @@ public class Game {
     public static final File PROFILES_DIRECTORY = new File(".\\profiles");
     public static final File[] ALL_PROFILES = PROFILES_DIRECTORY.listFiles();
     public static boolean isRunning = true;
+    public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) { 
 
-        Scanner sc = new Scanner(System.in);
+        
         String command = "";
         boolean isValid = false;
         boolean profileLoaded = false;
@@ -60,13 +61,14 @@ public class Game {
             s.loop();
         }
 
+        
+
         while (isRunning) {
             s = new SelectScene();
             s.loop();
         }
-
-
         sc.close();
+
     }
 
     /**

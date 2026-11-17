@@ -21,7 +21,7 @@ public class RepeatSubtraction extends PlayScene {
         long startingTime = System.currentTimeMillis();
         long finalTime;
         int number = generateAppropriateRandomNumber(difficulty);
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = Game.sc;
         int solution;
         int userAnswer;
 
@@ -72,10 +72,6 @@ public class RepeatSubtraction extends PlayScene {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
-
-        System.out.println("Press enter to proceed...");
-        sc.next();
-        sc.close();
 
     }
 

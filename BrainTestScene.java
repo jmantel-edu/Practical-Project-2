@@ -31,7 +31,7 @@ public class BrainTestScene extends PlayScene {
 
         System.out.println("FINAL TEST: SIGN FINDER\nFind the sign that makes the equation true.");
         sleep(2000);
-        subscene = new SignFinder();
+        subscene = new SignFinder(30, 2);
         subscene.loop();
         scoreHolder = subscene.getScore();
         if (scoreHolder <= 30) {
@@ -39,6 +39,11 @@ public class BrainTestScene extends PlayScene {
         } else {
             brainAge += 0.15 * (scoreHolder - 30);
         }
+
+        System.out.println("Your brain age is........");
+        sleep(2000);
+        System.out.println(brainAge + " years");
+        System.out.println("The lowest possible score is 20 years. Test regularly and do the brain training games to train your brain to hit age 20!");
 
     }
 

@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ArithmeticDrill extends PlayScene {
+    
     private double score = 0;
     private int questionCount;
     private int difficulty;
@@ -30,7 +31,7 @@ public class ArithmeticDrill extends PlayScene {
 
     @Override
     public void loop() {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = Game.sc;
         // Countdown Section
         try {
             System.out.println("3...");
@@ -79,8 +80,6 @@ public class ArithmeticDrill extends PlayScene {
             e.printStackTrace();
         }
 
-        sc.close();
-
     }
 
     /**
@@ -123,25 +122,4 @@ public class ArithmeticDrill extends PlayScene {
         }
     }
 
-
-    /**
-     * Returns the appropriate count index for the array in records based on the amount of questions.
-     * @param count The amount of questions.
-     * @return The appropriate index in the Records.arithmeticDrillRecords array.
-     */
-    private int getQuestionCountIndex(int count) {
-        switch (count) {
-            case 20:
-                return 0;
-            case 30:
-                return 1;
-            case 50:
-                return 2;
-            case 100:
-                return 3;
-        
-            default:
-                return 1;
-        }
-    }
 }
